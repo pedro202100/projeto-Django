@@ -1,0 +1,21 @@
+body{
+    background-color: antiquewhite;
+    text-align:center;
+}
+table{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 40px;
+}
+table tr td,table tr th{
+    padding: 15px;
+}
+table tr th{
+    height: 50px;
+    padding:10px;
+}
+#footer{
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}

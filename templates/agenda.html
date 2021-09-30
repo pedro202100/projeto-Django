@@ -1,0 +1,52 @@
+
+{% extends "model-page.html"%}
+
+{% block content %}
+    <table border="1">
+
+        <h2>agendamentos</h2>
+
+        <tr>
+            <th>TIRULO</th>
+            <th>DESCRIÇÂO</th>
+            <th>DATA MARCADA</th>
+            <th>EDITAR </th>
+            <th>EXCLUIR</th>
+
+        </tr>
+
+        {% for evento in eventos %}
+
+            {% if evento.getEventoAtrasado %}
+
+                <tr style="font-size:18px; color: red;">
+                    <div>
+                        <td>{{ evento.titulo }}</td>
+                    <td>{{evento.descricao}}</td>
+                    <td>{{evento.getDataEvento}}</td>
+                    <td><a href="evento/?id={{evento.id}}">Editar</a></td>
+                    <td><a href="evento/delete/{{evento.id}}/">Exluir</a></td>
+                    </div>
+                </tr>
+
+           {% else %}
+
+                <tr style="font-size:20px">
+                    <div>
+                        <td>{{ evento.titulo }}</td>
+                    <td>{{evento.descricao}}</td>
+                    <td>{{evento.getDataEvento}}</td>
+                    <td><a href="evento/?id={{evento.id}}">Editar</a></td>
+                    <td><a href="evento/delete/{{evento.id}}/">Exluir</a></td>
+                    </div>
+                </tr>
+
+           {% endif %}
+        {% endfor %}
+    </table>
+    <a href="evento/">
+        <button type="button">Novo Evento</button>
+    </a>
+
+{% endblock %}
+
